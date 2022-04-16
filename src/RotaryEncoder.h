@@ -50,6 +50,9 @@ public:
   // call this function every some milliseconds or by using an interrupt for handling state changes of the rotary encoder.
   void tick(void);
 
+  // call this if you want to read the rotary encoder signals outside the tick function (useful when using interrupt)
+  void tick(int sig1, int sig2);
+
   // Returns the time in milliseconds between the current observed
   unsigned long getMillisBetweenRotations() const;
 

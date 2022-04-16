@@ -107,11 +107,15 @@ void RotaryEncoder::setPosition(long newPosition)
 
 } // setPosition()
 
-
 void RotaryEncoder::tick(void)
 {
   int sig1 = digitalRead(_pin1);
   int sig2 = digitalRead(_pin2);
+  tick(sig1, sig2);
+}
+
+void RotaryEncoder::tick(int sig1, int sig2)
+{
   int8_t thisState = sig1 | (sig2 << 1);
 
   if (_oldState != thisState) {
